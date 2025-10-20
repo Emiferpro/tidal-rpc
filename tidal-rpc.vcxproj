@@ -99,8 +99,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Downloads\DiscordSocialSdk-1.6.12170\discord_social_sdk\include\cdiscord.h" />
-    <ClInclude Include="..\..\..\Downloads\DiscordSocialSdk-1.6.12170\discord_social_sdk\include\discordpp.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
     <ClCompile Include="WinMain.cpp" />
