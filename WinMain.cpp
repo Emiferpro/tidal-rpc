@@ -60,6 +60,9 @@ struct trackInfo {
     std::wstring coverArtUrl; // Holds the public URL of the cover art
 };
 
+// Application constants
+
+const std::string RELEASE_VER = "v0.2";
 constexpr uint64_t APPLICATION_ID = 1429350918310072372;
 
 NOTIFYICONDATAW g_notifyIconData{};
@@ -142,13 +145,12 @@ void updatePresence(const trackInfo& track)
 
     if (!track.coverArtUrl.empty()) {
         assets.SetLargeImage(ws2s(track.coverArtUrl));
-        if (track.album.length() >= 2 && track.album.length() <= 128) {
-            assets.SetLargeText(ws2s(track.album));
-        }
+		assets.SetLargeText("Playing on TIDAL");
     }
 
     assets.SetSmallImage("tidal-icon");
-    assets.SetSmallText("TIDAL");
+    assets.SetSmallText("tidal-rpc " + RELEASE_VER + " by @emiferpro");
+    assets.SetSmallUrl("https://github.com/Emiferpro/tidal-rpc");
     activity.SetAssets(assets);
 
     client->UpdateRichPresence(activity, [](const discordpp::ClientResult& result) {
